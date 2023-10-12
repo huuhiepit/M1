@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .container-caculator {
+            background: #dfdada;
+            width: 600px;
+            height: 300px;
+            border: 1px solid rgb(182, 182, 227);
+            padding: 24px;
+            margin: 24px;
+        }
+        .caculator-input input{
+            text-align: end;
+            height: 36px;
+            width: 100%;
+            font-size: 1.6rem;
+            padding-right: 14px;
+            color: #292727;
+            border: 1px solid #a6a1a1
+        }
+        .caculator-btn {
+            margin-top: 4px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        .math-btn {
+            width: 74px;
+            height: 36px;
+        }
+        .number {
+            border: 1px solid #535151;
+            background: #e4d3d3;
+        }
+        .number:active, .btn:active {
+            background-color: #a6a1a1;
+        }
+        .btn {
+            background: rgb(158, 158, 235);
+            border: 1px solid #535151;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-caculator">
+        <div class="caculator-input">
+            <input type="text" placeholder="0" class="form-control" readonly>
+        </div>
+        <form class="caculator-btn">
+            <button type="button" class="math-btn">Rad</button>
+            <button type="button" class="math-btn number"><i class="fa-regular fa-keyboard"></i></button>
+            <button type="button" class="math-btn">x!</button>
+            <button type="button" class="math-btn">(</button>
+            <button type="button" class="math-btn">)</button>
+            <button type="button" class="math-btn">%</button>
+            <button type="button" class="math-btn">AC</button>
+            <button type="button" class="math-btn">Inv</button>
+            <button type="button" class="math-btn">sin</button>
+            <button type="button" class="math-btn">ln</button>
+            <button type="button" class="math-btn number">7</button>
+            <button type="button" class="math-btn number">8</button>
+            <button type="button" class="math-btn number">9</button>
+            <button type="button" class="math-btn"><i class="fa-solid fa-divide"></i></button>
+            <button type="button" class="math-btn">pi</button>
+            <button type="button" class="math-btn">cos</button>
+            <button type="button" class="math-btn">log</button>
+            <button type="button" class="math-btn number">4</button>
+            <button type="button" class="math-btn number">5</button>
+            <button type="button" class="math-btn number">6</button>
+            <button type="button" class="math-btn">X</button>
+            <button type="button" class="math-btn">e</button>
+            <button type="button" class="math-btn">tan</button>
+            <button type="button" class="math-btn"><i class="fa-solid fa-square-root-variable"></i></button>
+            <button type="button" class="math-btn number">1</button>
+            <button type="button" class="math-btn number">2</button>
+            <button type="button" class="math-btn number">3</button>
+            <button type="button" class="math-btn">-</button>
+            <button type="button" class="math-btn">Ans</button>
+            <button type="button" class="math-btn">EXP</button>
+            <button type="button" class="math-btn"><i class="fa-solid fa-superscript"></i></button>
+            <button type="button" class="math-btn number">0</button>
+            <button type="button" class="math-btn number">.</button>
+            <button type="button" class="math-btn btn">=</button>
+            <button type="button" class="math-btn">+</button>
+        </form>
+    </div>
+</body>
+</html>

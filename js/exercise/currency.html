@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .currency-container {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            gap: 60px;
+            margin-top: 24px;
+        }
+        .currency-container div h4 {
+            text-align: center;
+        }
+        .currency-container button {
+            width: 100px;
+            height: 26px;
+            background: rgb(35, 171, 212);
+        }
+    </style>
+</head>
+<body>
+    <div class="currency-container">
+        <div>
+            <h4>Amount</h4>
+            <input type="text">
+        </div>
+        <div>
+            <h4>From Currency</h4>
+            <select name="" id="currency" onchange="return this.chilren;">
+                <option value="0">Change currency</option>
+                <option value="vn">VietNam</option>
+                <option value="usd">USD</option>
+            </select>
+        </div>
+        <div>
+            <h4>To Currency</h4>
+            <select name="" id="to-currency" onchange="return this.chilren;">
+                <option value="0">Change currency</option>
+                <option value="vn">VietNam</option>
+                <option value="usd">USD</option>
+            </select>
+        </div>
+        <button type="button" onclick="changeCurrency();">Convert</button>
+    </div>
+    <h3 id="result"></h3>
+    <script>
+        function changeCurrency(){
+            let amountCurrency = +document.querySelector('input').value;
+            let getCurrency = document.getElementById('currency').value;
+            let getToCurrency = document.getElementById('to-currency').value;
+
+            if(getCurrency == 'vn' && getToCurrency == 'usd'){
+                amountCurrency /= 24000;
+                document.getElementById('result').innerHTML = 'Result: ' + amountCurrency.toFixed(3) + ' USD';
+            } else if (getCurrency == 'usd' && getToCurrency == 'vn') {
+                amountCurrency *= 24000;
+                document.getElementById('result').innerHTML = 'Result: ' + amountCurrency + ' VND';
+            } else if(getCurrency == getToCurrency){
+                document.getElementById('result').innerHTML = 'Result: ' + amountCurrency;
+            } else{
+                alert('Please change currency!!!')
+            }
+            
+        }
+    </script>
+</body>
+</html>
