@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luyện tập cấu trúc điều kiện 01</title>
+</head>
+<body>
+    <button onclick="lesson1()">Bai 1</button>
+    <button onclick="lesson2()">Bai 2</button>
+    <button onclick="lesson3()">Bai 3</button>
+    <button onclick="lesson4()">Bai 4</button>
+    <button onclick="lesson5()">Bai 5</button>
+    <button onclick="lesson6()">Bai 6</button>
+    <button onclick="lesson7()">Bai 7</button>
+    <script>
+        function lesson1() {
+            let a = +prompt("Enter a:");
+            let b = +prompt("Enter b:");
+
+            if(a % b == 0) {
+                alert("a is divisible by b");
+            } else {
+                alert("a is not divisible by b");
+            }
+        }
+
+        function lesson2() {
+            let age = +prompt("Enter age:");
+
+            if(age >= 15) {
+                alert("Eligible for grade 10");
+            } else {
+                alert("Not eligible for grade 10");
+            }
+        }
+
+        function lesson3() {
+            let number = +prompt("Enter number:")
+
+            if(number > 0) {
+                alert(`${number} is greater than 0`);
+            } else if(number == 0) {
+                alert(`Equals 0`);
+            } else {
+                alert(`${number} is less than 0`)
+            }
+        }
+
+        function lesson4() {
+            let a = +prompt("Enter a:");
+            let b = +prompt("Enter b:");
+            let c = +prompt("Enter c:");
+
+            if(a > b && a > c) {
+                alert(`Max is ${a}`);
+            } else if (b > c) {
+                alert(`Max is ${b}`);
+            } else {
+                alert(`Max is ${c}`);
+            }
+        }
+
+        function lesson5() {
+            let point = +prompt("Enter point:");
+
+            if(point > 8 && point <= 10) {
+                alert("Excellent students!!");
+            } else if(point >= 6) {
+                alert("Good students!");
+            } else if(point >= 4) {
+                alert("Average students");
+            } else if(point > 10 || point < 0) {
+                let point = +prompt("Please re-enter point");
+            } else {
+                alert("Poor students");
+            }
+        }
+
+        function lesson6() {
+            let sales = +prompt("Enter sales");
+
+            // 100d = 1s
+            if(sales >= 100) {
+                alert(`Amount received :` + sales*10/100);
+            } else if (sales >= 60) {
+                alert(`Amount received :` + sales*6/100);
+            } else {
+                alert(`Amount received :` + sales*3/100);
+            }
+        }   
+
+        function lesson7() {
+            let timeNumber = +prompt("Nhập số thời gian cuộc gọi (s):");
+
+            if(timeNumber >= 10*60) {
+                alert(`Bet paid :` + (timeNumber*100)-(timeNumber*100)*5/100);
+            } else if (timeNumber >= 5*60) {
+                alert(`Bet paid :` + (timeNumber*100)-(timeNumber*100)*3/100);
+            } else if(timeNumber <= 0) {
+                alert(`Bet paid : 0`);
+            } else {
+                alert(`Bet paid :` + (timeNumber*100)-(timeNumber*100)*5/100);
+            }
+        }
+    </script>
+</body>
+</html>

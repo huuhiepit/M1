@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h4>Tính số ngày có trong tháng</h4>
+    <input type="number" id="month">
+    <button onclick="numberOfDayMonth()">Tính số ngày</button>
+    <h4 id="result"></h4>
+    <script>
+        function numberOfDayMonth() {
+            let month = document.getElementById("month").value;
+            
+            switch(parseInt(month)) {
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12:
+                    document.querySelector('#result').innerHTML = `Month ${month} have 31 days`;
+                    break;
+                case 2:
+                    document.querySelector('#result').innerHTML = `Month ${month} have 28 days or 29 days`;
+                    break;
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    document.querySelector('#result').innerHTML = `Month ${month} have 30 days`;
+                    break;
+                default:
+                    document.querySelector('#result').innerHTML = `Please enter month`;
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

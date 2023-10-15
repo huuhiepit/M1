@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body onload="docReady()">
+    <img
+      id="doraemon"
+      src="asset/images/doraemon.jpg"
+      alt=""
+      style="width: 150px; position: absolute; top: 0; left: 0"
+    />
+    <script>
+      function upArrowPressed() {
+        let element = document.getElementById("doraemon");
+        element.style.top = parseInt(element.style.top) - 5 + "px";
+      }
+      function downArrowPressed() {
+        let element = document.getElementById("doraemon");
+        element.style.top = parseInt(element.style.top) + 5 + "px";
+      }
+      function leftArrowPrssed() {
+        let element = document.getElementById("doraemon");
+        element.style.left = parseInt(element.style.left) - 5 + "px";
+      }
+      function rightArrowPrssed() {
+        let element = document.getElementById("doraemon");
+        element.style.left = parseInt(element.style.left) + 5 + "px";
+      }
+
+      function moveSelection(evt) {
+        switch (evt.keyCode) {
+          case 37:
+            leftArrowPrssed();
+            break;
+          case 39:
+            rightArrowPrssed();
+            break;
+          case 38:
+            upArrowPressed();
+            break;
+          case 40:
+            downArrowPressed();
+            break;
+        }
+      }
+      function docReady() {
+        let element = document.getElementById("doraemon");
+        // element.style.position = 'absolute';
+        // element.style.top = '0px';
+        // element.style.left = '0px';
+        window.addEventListener("keydown", moveSelection);
+      }
+    </script>
+  </body>
+</html>

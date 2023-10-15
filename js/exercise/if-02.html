@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luyện tập cấu trúc điều kiện 02</title>
+  </head>
+
+  <body>
+    <button onclick="lesson1()">Bai 1</button>
+    <button onclick="lesson2()">Bai 2</button>
+    <button onclick="lesson3()">Bai 3</button>
+    <button onclick="lesson4()">Bai 4</button>
+    <button onclick="lesson5()">Bai 5</button>
+    <button onclick="lesson6()">Bai 6</button>
+    <button onclick="lesson7()">Bai 7</button>
+    <button onclick="lesson8()">Bai 8</button>
+    <button onclick="lesson9()">Bai 9</button>
+    <button onclick="lesson10()">Bai 10</button>
+    <button onclick="lesson11()">Bai 11</button>
+    <button onclick="lesson12()">Bai 12</button>
+    <script>
+      function lesson1() {
+        let doC = +prompt("Nhap do C:");
+        let doF = (doC * 9) / 5 + 32;
+
+        alert(`Do F = ${doF}`);
+      }
+
+      function lesson2() {
+        let m = +prompt("Nhap met:");
+        let feet = m * 3.2808;
+
+        alert(`Feet = ${feet}`);
+      }
+
+      function lesson3() {
+        let a = +prompt("Nhap canh a");
+
+        alert(`Shinhvuong = ${a * a}`);
+      }
+
+      function lesson4() {
+        let a = +prompt("Nhap canh a");
+        let b = +prompt("Nhap canh b");
+
+        alert(`Schunhat = ${a * b}`);
+      }
+
+      function lesson5() {
+        let a = +prompt("Nhap canh a");
+        let b = +prompt("Nhap canh b");
+
+        alert(`Stamgiacvuong = ${(1 / 2) * (a * b)}`);
+      }
+
+      function lesson6() {
+        let a = +prompt("Nhap a");
+        let b = +prompt("Nhap b");
+
+        if (a == 0 && b == 0) {
+          alert("Phương trình có vô số nghiệm.");
+        } else if ((a = 0 && b != 0)) {
+          alert("Phương trình vô nghiệm.");
+        } else if (a != 0) {
+          alert(`phương trình có nghiệm duy nhất x = ${-b / a}`);
+        }
+      }
+
+      function lesson7() {
+        let a = +prompt("Nhap a");
+        let b = +prompt("Nhap b");
+        let c = +prompt("Nhap c");
+        let deta = Math.pow(b, 2) - 4 * a * c;
+
+        if (deta == 0) {
+          alert(`Phương trình có nghiệm kép x1 =x2 = ${(-b / 2) * a}`);
+        } else if (deta > 0) {
+          alert(
+            `Phương trình có 2 nghiệm phân biệt, ta dùng công thức nghiệm sau: x1 = ${
+              ((-b + Math.sqrt(deta)) / 2) * a
+            } và x2 = ${((-b - Math.sqrt(deta)) / 2) * a}`
+          );
+        }
+      }
+
+      function lesson8() {
+        let age = +prompt("Nhap so tuoi:");
+
+        if (age > 0 && age < 120) {
+          alert(`${age} la so tuoi cua con nguoi`);
+        } else {
+          alert(`${age} khong phai la so tuoi cua con nguoi`);
+        }
+      }
+
+      function lesson9() {
+        let a = +prompt("Nhap canh a");
+        let b = +prompt("Nhap canh b");
+        let c = +prompt("Nhap canh c");
+
+        if (a > 0 && b > 0 && c > 0) {
+          alert("a,b,c la 3 canh cua tam giac");
+        } else if (a + b > c) {
+          alert("a,b,c la 3 canh cua tam giac");
+        } else if (a + c > a) {
+          alert("a,b,c la 3 canh cua tam giac");
+        } else if (a + c > b) {
+          alert("a,b,c la 3 canh cua tam giac");
+        } else {
+          alert("a,b,c khong phai la 3 canh cua tam giac");
+        }
+      }
+
+      function lesson10() {
+        let kWh = +prompt("Nhap dien nang tieu thu");
+
+        if (kWh <= 50) {
+          alert(`So tien dien phai tra : ${kWh * 1728}`);
+        } else {
+          alert(`So tien dien phai tra : ${kWh * 2074}`);
+        }
+      }
+
+      function lesson11() {
+        let thunhap = +prompt("Nhap thu nhap ca nhan");
+
+        if (thunhap <= 10000000 && thunhap >= 5000000) {
+          alert(`Thue thu nhap = ${(thunhap * 5) / 100}`);
+        } else {
+          alert(`Thue thu nhap = ${(thunhap * 10) / 100}`);
+        }
+      }
+
+      function lesson12() {
+        const soTienBanDau = parseFloat(prompt("Nhập số tiền ban đầu:"));
+        const soThangChoVay = parseInt(prompt("Nhập số tháng cho vay:"));
+        const laiXuatHangThang =
+          parseFloat(
+            prompt("Nhập lãi xuất hàng tháng (dưới dạng phần trăm):")
+          ) / 100;
+        const tongLai = tinhLaiNganHang(
+          soTienBanDau,
+          soThangChoVay,
+          laiXuatHangThang
+        );
+        console.log(
+          `Tổng lãi sau ${soThangChoVay} tháng là: ${tongLai.toFixed(2)} đồng`
+        );
+      }
+
+      function tinhLaiNganHang(soTienBanDau, soThangChoVay, laiXuatHangThang) {
+        let laiCon = 0; // Lãi con ban đầu là 0
+        let tongLai = 0; // Tổng lãi sẽ tích luỹ
+        let tongSoTien = soTienBanDau; // Tổng số tiền vay sẽ tích luỹ
+
+        for (let thang = 1; thang <= soThangChoVay; thang++) {
+          laiCon += tongSoTien * laiXuatHangThang;
+          tongSoTien += laiCon;
+          tongLai += laiCon;
+        }
+
+        return tongLai;
+      }
+    </script>
+  </body>
+</html>

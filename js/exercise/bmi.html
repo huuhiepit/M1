@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI</title>
+</head>
+<body>
+    <img src="asset/images/bmi.jpg" alt="" width="300px">
+    <div class="bmi-input">
+        <label for="weight">Weight</label>
+        <input id="weight" type="text">
+    </div>
+    <div class="bmi-input">
+        <label for="height">Height</label>
+        <input id="height" type="text">
+    </div>
+    <button type="button" id="result" onclick="resultBMI()">Result</button>
+    <button type="button" id="reset">Reset</button>
+    <div class="bmi-index">
+        <span>Index BMI :</span>
+    </div>
+    <script>
+        function calcIndexBMI() {
+            let weight = parseInt(document.getElementById('weight').value);
+            let height = parseFloat(document.getElementById('height').value);
+            let bmi = weight / Math.pow(height, 2);
+            return bmi;
+        }
+        function resultBMI() {
+            let bmi = calcIndexBMI().toFixed(2);
+            let result = document.querySelector('.bmi-index span');
+
+            if(bmi < 18) {
+                result.innerHTML = `Index BMI : ${bmi}, Uderweight`;
+            } else if(bmi < 25.0) {
+                result.innerHTML = `Index BMI : ${bmi}, Normal`;
+            } else if(bmi < 30.0) {
+                result.innerHTML = `Index BMI : ${bmi}, Overweight`;
+            } else {
+                result.innerHTML = `Index BMI : ${bmi}, Obese`;
+            }
+            
+        }
+
+    </script>
+</body>
+</html>

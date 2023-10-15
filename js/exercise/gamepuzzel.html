@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .puzzels {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .puzzels img {
+            margin: 5px;
+            width: 600px;
+            height: 170px;
+            vertical-align: middle;
+            border: 2px solid black;
+            box-shadow: 4px 6px black;
+        }
+    </style>
+</head>
+<body onload="">
+    <div class="puzzels" id="puzzels">
+        <img onclick="onClickImg(0)" id="image0" alt="meo.jpg">
+        <img onclick="onClickImg(1)" id="image1" alt="meo.jpg">
+        <img onclick="onClickImg(2)" id="image2" alt="meo.jpg">
+    </div>
+    <script>
+        console.log(document.getElementsByClassName('.puzzels img'));
+        window.onload(onLoadPuzzel());
+        function onClickImg(ltn) {
+            var randomNumber = Math.floor(Math.random() * 3)
+            let img = document.querySelectorAll('#puzzels img');
+            img[ltn].setAttribute('src', `asset/images/img-meo${randomNumber}-${ltn}.png`);
+            
+            let nameImg0 = getNameImg(0);
+            let nameImg1 = getNameImg(1);
+            let nameImg2 = getNameImg(2);
+
+            if(nameImg0 == nameImg1 && nameImg0 == nameImg2){
+                document.getElementById("image0").style.boxShadow = '4px 6px red';
+                document.getElementById("image1").style.boxShadow = '4px 6px red';
+                document.getElementById("image2").style.boxShadow = '4px 6px red';
+            }
+            else {
+                document.getElementById("image0").style.boxShadow = '4px 6px black';
+                document.getElementById("image1").style.boxShadow = '4px 6px black';
+                document.getElementById("image2").style.boxShadow = '4px 6px black';
+            }
+        }
+        function onLoadPuzzel() {
+            let img = document.querySelectorAll('#puzzels img');
+            img[0].setAttribute('src', `asset/images/img-meo${Math.floor(Math.random() * 3)}-0.png`);
+            img[1].setAttribute('src', `asset/images/img-meo${Math.floor(Math.random() * 3)}-1.png`);
+            img[2].setAttribute('src', `asset/images/img-meo${Math.floor(Math.random() * 3)}-2.png`);
+        }
+        
+        function getNameImg(ltn) {
+            let img = document.querySelectorAll('#puzzels img');
+            let str = img[ltn].getAttribute("src")
+            var parts = str.split("/"); // Tách chuỗi bằng dấu /
+            var imageName = parts[parts.length - 1]; // Lấy phần tử cuối cùng sau khi tách
+
+            var nameParts = imageName.split("-"); // Tách phần cuối bằng dấu -
+            var result = nameParts[1]; // Lấy phần tử thứ hai sau khi tách
+            
+            return result;
+        }
+    </script>
+</body>
+</html>

@@ -56,45 +56,66 @@
 <body>
     <div class="container-caculator">
         <div class="caculator-input">
-            <input type="text" placeholder="0" class="form-control" readonly>
+            <input type="text" placeholder="0" class="form-control" id="result" readonly>
         </div>
         <form class="caculator-btn">
-            <button type="button" class="math-btn">Rad</button>
-            <button type="button" class="math-btn number"><i class="fa-regular fa-keyboard"></i></button>
-            <button type="button" class="math-btn">x!</button>
-            <button type="button" class="math-btn">(</button>
-            <button type="button" class="math-btn">)</button>
-            <button type="button" class="math-btn">%</button>
-            <button type="button" class="math-btn">AC</button>
-            <button type="button" class="math-btn">Inv</button>
-            <button type="button" class="math-btn">sin</button>
-            <button type="button" class="math-btn">ln</button>
-            <button type="button" class="math-btn number">7</button>
-            <button type="button" class="math-btn number">8</button>
-            <button type="button" class="math-btn number">9</button>
-            <button type="button" class="math-btn"><i class="fa-solid fa-divide"></i></button>
-            <button type="button" class="math-btn">pi</button>
-            <button type="button" class="math-btn">cos</button>
-            <button type="button" class="math-btn">log</button>
-            <button type="button" class="math-btn number">4</button>
-            <button type="button" class="math-btn number">5</button>
-            <button type="button" class="math-btn number">6</button>
-            <button type="button" class="math-btn">X</button>
-            <button type="button" class="math-btn">e</button>
-            <button type="button" class="math-btn">tan</button>
-            <button type="button" class="math-btn"><i class="fa-solid fa-square-root-variable"></i></button>
-            <button type="button" class="math-btn number">1</button>
-            <button type="button" class="math-btn number">2</button>
-            <button type="button" class="math-btn number">3</button>
-            <button type="button" class="math-btn">-</button>
-            <button type="button" class="math-btn">Ans</button>
-            <button type="button" class="math-btn">EXP</button>
-            <button type="button" class="math-btn"><i class="fa-solid fa-superscript"></i></button>
-            <button type="button" class="math-btn number">0</button>
-            <button type="button" class="math-btn number">.</button>
-            <button type="button" class="math-btn btn">=</button>
-            <button type="button" class="math-btn">+</button>
+            <button type="button" onclick="appendToResult()" class="math-btn">Rad</button>
+            <button type="button" onclick="appendToResult()" class="math-btn number"><i class="fa-regular fa-keyboard"></i></button>
+            <button type="button" onclick="appendToResult()" class="math-btn">x!</button>
+            <button type="button" onclick="appendToResult('(')" class="math-btn">(</button>
+            <button type="button" onclick="appendToResult(')')" class="math-btn">)</button>
+            <button type="button" onclick="appendToResult('/100')" class="math-btn">%</button>
+            <button type="button" onclick="resetResult()" class="math-btn">AC</button>
+            <button type="button" onclick="appendToResult()" class="math-btn">Inv</button>
+            <button type="button" onclick="appendToResult()" class="math-btn">sin</button>
+            <button type="button" onclick="appendToResult()" class="math-btn">ln</button>
+            <button type="button" onclick="appendToResult(7)"  class="math-btn number">7</button>
+            <button type="button" onclick="appendToResult(8)"  class="math-btn number">8</button>
+            <button type="button" onclick="appendToResult(9)"  class="math-btn number">9</button>
+            <button type="button" onclick="appendToResult('/')"  class="math-btn"><i class="fa-solid fa-divide"></i></button>
+            <button type="button" onclick="appendToResult(3.14)" class="math-btn">pi</button>
+            <button type="button" onclick="appendToResult()" class="math-btn">cos</button>
+            <button type="button" onclick="appendToResult()" class="math-btn">log</button>
+            <button type="button" onclick="appendToResult(4)"  class="math-btn number">4</button>
+            <button type="button" onclick="appendToResult(5)"  class="math-btn number">5</button>
+            <button type="button" onclick="appendToResult(6)"  class="math-btn number">6</button>
+            <button type="button" onclick="appendToResult('*')"  class="math-btn">X</button>
+            <button type="button" onclick="appendToResult()" class="math-btn">e</button>
+            <button type="button" onclick="appendToResult()" class="math-btn">tan</button>
+            <button type="button" onclick="appendToResult()" class="math-btn"><i class="fa-solid fa-square-root-variable"></i></button>
+            <button type="button" onclick="appendToResult(1)"  class="math-btn number">1</button>
+            <button type="button" onclick="appendToResult(2)"  class="math-btn number">2</button>
+            <button type="button" onclick="appendToResult(3)"  class="math-btn number">3</button>
+            <button type="button" onclick="appendToResult('-')"  class="math-btn">-</button>
+            <button type="button" onclick="appendToResult()" class="math-btn">Ans</button>
+            <button type="button" onclick="appendToResult()" class="math-btn">EXP</button>
+            <button type="button" onclick="appendToResult()" class="math-btn"><i class="fa-solid fa-superscript"></i></button>
+            <button type="button" onclick="appendToResult(0)"  class="math-btn number">0</button>
+            <button type="button" onclick="appendToResult('.')"  class="math-btn number">.</button>
+            <button type="button" onclick="calculate()"  class="math-btn btn">=</button>
+            <button type="button" onclick="appendToResult('+')"  class="math-btn">+</button>
         </form>
     </div>
+    <script>
+        let resultElement = document.getElementById('result');
+
+        function appendToResult(value){
+            resultElement.value += value;
+        }
+
+        function resetResult(){
+            document.getElementById('result').value = '';
+            
+        }
+
+        function calculate() {
+            try {
+                let result = eval(resultElement.value);
+                resultElement.value = result;
+            } catch (error) {
+                resultElement.value = "Error";
+            }
+        }
+    </script>
 </body>
 </html>

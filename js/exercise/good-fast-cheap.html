@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Good - Fast - Cheap</title>
+    <style>
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 60vh;
+            flex-direction: column;
+            margin-left: 30%;
+        }
+        .switch-toggle {
+            width: 100px;
+            height: 20px;
+            background: #706e6e;
+            appearance: none;
+            border-radius: 24px;
+            position: relative;
+            cursor: pointer;
+        }
+        .switch-toggle::before {
+            content: "";
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            background: #a3a5a3;
+            top: -10px;
+            box-shadow: inset 2px 0px rgba(0,0,0,0.3);
+            border-radius: 50%;
+            transition: 0.25s;
+        }
+        .switch-toggle:checked::before {
+            left: 60px;
+        }
+        .status {
+            display: flex;
+            align-items: center;
+        }
+        .status h3 {
+            margin-left: 12px;
+            text-transform: uppercase;
+            font-weight: bolder;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="status">
+            <input onclick="changeStatus(0)" type="checkbox" id="good" class="switch-toggle">
+            <h3>Good</h3>
+        </div>
+        <div class="status">
+            <input onclick="changeStatus(1)" type="checkbox" id="fast" class="switch-toggle">
+            <h3>Fast</h3>
+        </div>
+        <div class="status">
+            <input onclick="changeStatus(2)" type="checkbox" id="cheap" class="switch-toggle">
+            <h3>Cheap</h3>
+        </div>
+    </div>
+    <script>
+        function changeStatus(ltn) {
+            let checkGood = document.getElementById('good').checked;
+            let checkFast = document.getElementById('fast').checked;
+            let checkCheap = document.getElementById('cheap').checked;
+            var newStyle = document.createElement('style');
+
+            switch(ltn) {
+                case 0:
+                    if(checkGood == true) {
+                        changeBeforeBackground('good','green');
+                    } else {
+                        document.getElementById('good').style.background = '#706e6e';
+                        removeBeforeBackground();
+                    }
+                    break;
+                case 1:
+                    if(checkFast == true) {
+                        changeBeforeBackground('fast','blue');
+                    } else {
+                        document.getElementById('fast').style.background = '#706e6e';
+                        removeBeforeBackground();
+                    }
+                    break;
+                case 2:
+                if(checkCheap == true) {
+                        changeBeforeBackground('cheap', 'red');
+                    } else {
+                        document.getElementById('cheap').style.background = '#706e6e';
+                        removeBeforeBackground();
+                    }
+                    break;
+            }
+
+            
+            
+        }
+        function changeBeforeBackground(status, color) {
+            document.getElementById(`${status}`).style.background = color;
+            // Tạo một rule CSS mới với background mới
+            newStyle = document.createElement('style');
+            newStyle.innerHTML = `#${status}::before { background-color: ${color}; }`;
+
+            // Thêm rule mới vào phần tử <head> của trang
+            document.head.appendChild(newStyle);
+        }
+
+        function removeBeforeBackground() {
+            if (newStyle) {
+                // Loại bỏ rule CSS đã tạo khỏi phần tử <head>
+                document.head.removeChild(newStyle);
+            }
+        }
+
+
+    </script>
+</body>
+</html>

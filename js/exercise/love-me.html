@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do You Love Me?</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h3>Do you love me?</h3>
+    <button onclick="alert('<3 Love Your')">Yes</button>
+    <button id="btn-no" onmouseover="moveBtn()">No</button>
+    <script>
+        function moveBtn() {
+            let randomHeight = Math.floor(Math.random() * window.innerHeight);;
+            let randomWeight = Math.floor(Math.random() * window.innerWidth);
+
+            let btnNo = document.getElementById('btn-no');
+            btnNo.style.position = 'absolute';
+            btnNo.style.top = randomHeight + 'px';
+            btnNo.style.left = randomWeight + 'px';
+        }
+    </script>
+</body>
+</html>
