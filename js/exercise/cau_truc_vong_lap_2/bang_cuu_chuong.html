@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Bảng cửu chương</h3>
+    </table>
+    <script>
+        let i,j,scout;
+        i = 1;
+        j = 2;
+        scout = "<table border='3' width='1000' cellspacing='1' cellpadding='3'>";
+        console.log(i + j);
+        while(i < 10) {
+            scout += "<tr>";
+            while(j < 10){
+                scout += `<td>${j}x${i} = ${j*i}</td>`;
+                j++;
+            }
+            j=2;
+            scout += "</tr>";
+            i++;
+        }
+        scout += "</table>";
+        console.log(scout);
+        document.write(scout);
+    </script>
+</body>
+</html>
