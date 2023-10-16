@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Thực hành] Sử dụng vòng lặp for</title>
+</head>
+<body>
+    <button onclick="lesson1()">Bai 1</button>
+    <button onclick="lesson2()">Bai 2</button>
+    <p id="demo"></p>
+    <script>
+        function lesson1() {
+            let n = +prompt("Enter n:");
+            var text = '';
+
+            for(let i = 1; i <= n; i++) {
+                text += `The number is ${i} <br>`;     
+            }
+            document.getElementById('demo').innerHTML = text;
+        }
+
+        function lesson2() {
+            let num = prompt("Enter your number: ");
+            let total = 0;
+
+            if(num > 0) {
+                for(let i = 1; i <= num; i++) {
+                    total += i;;
+                }
+            } else {
+                alert("Please re-enter your number.")
+            }
+            document.getElementById('demo').innerHTML = `Total = ${total}`;
+        } 
+    </script>
+</body>
+</html>
