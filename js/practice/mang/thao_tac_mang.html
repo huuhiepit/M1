@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Sample Screen:</h3>
+    <input id="array" type="text">
+    <button onclick="addArray()">Add</button>
+    <button onclick="displayArray()">Display</button>
+    <script>
+        let array = [];
+        function addArray() {
+            let arrayElement = document.getElementById('array').value;
+
+            array.push(arrayElement);
+            document.getElementById('array').value = '';
+        }
+        function displayArray() {
+            for(let i = 0; i < array.length; i++) {
+                document.write(`<h5>Element ${i} = ${array[i]}`);
+            }
+        }
+    </script>
+</body>
+</html>
