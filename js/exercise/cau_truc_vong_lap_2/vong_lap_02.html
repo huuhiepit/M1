@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[*Bài tập] Luyện tập vòng lặp 02</title>
+    <style>
+      /* CSS */
+      button {
+        align-items: center;
+        appearance: none;
+        background-image: radial-gradient(
+          100% 100% at 100% 0,
+          #5adaff 0,
+          #5468ff 100%
+        );
+        border: 0;
+        border-radius: 6px;
+        box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+          rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+          rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+        box-sizing: border-box;
+        color: #fff;
+        cursor: pointer;
+        display: inline-flex;
+        font-family: "JetBrains Mono", monospace;
+        height: 48px;
+        justify-content: center;
+        line-height: 1;
+        list-style: none;
+        overflow: hidden;
+        padding-left: 16px;
+        padding-right: 16px;
+        position: relative;
+        text-align: left;
+        text-decoration: none;
+        transition: box-shadow 0.15s, transform 0.15s;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        white-space: nowrap;
+        will-change: box-shadow, transform;
+        font-size: 18px;
+      }
+
+      button:focus {
+        box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+          rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+      }
+
+      button:hover {
+        box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+          rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+        transform: translateY(-2px);
+      }
+
+      button:active {
+        box-shadow: #3c4fe0 0 3px 7px inset;
+        transform: translateY(2px);
+      }
+    </style>
+  </head>
+  <body>
+    <button role="button" onclick="lesson01()">Bai 01</button>
+    <button role="button" onclick="lesson02()">Bai 02</button>
+    <button role="button" onclick="lesson03()">Bai 03</button>
+    <button role="button" onclick="lesson04()">Bai 04</button>
+    <button role="button" onclick="lesson05(10000,3,0.02)">Bai 05</button>
+    <button role="button" onclick="lesson06()">Bai 06</button>
+
+    <script>
+      function lesson01() {
+        const fibSequence = [0, 1];
+        for (let i = 2; i < 10; i++) {
+          const nextNumber = fibSequence[i - 1] + fibSequence[i - 2];
+          fibSequence.push(nextNumber);
+        }
+        console.log(fibSequence);
+      }
+
+      function lesson02() {
+        let number = prompt("Nhập số nguyên dương: ");
+        let result = giaithua(number);
+
+        if (result != -1) {
+          console.log(`Giai thừa của ${number} là ${result}`);
+        } else {
+          alert("Số bạn nhập không phải là số nguyên dương");
+        }
+      }
+      function giaithua(n) {
+        if (n == 0) {
+          return 1;
+        } else {
+          return n * giaithua(n - 1);
+        }
+      }
+
+      function lesson03() {
+        for (let i = 1; i <= 5; i++) {
+          let row = "";
+          for (let j = 1; j <= i; j++) {
+            row += "* ";
+          }
+          console.log(row);
+        }
+
+        for (let i = 5; i >= 1; i--) {
+          let row = "";
+          for (let j = 1; j <= i; j++) {
+            row += "* ";
+          }
+          console.log(row);
+        }
+
+        let scout = "";
+        scout = '<table border="1">';
+
+        for (let i = 5; i > 0; i--) {
+          scout += "<tr>";
+          for (let j = 0; j < i; j++) {
+            scout += "<td>*</td>";
+          }
+          for (let k = 1; k <= 5 - i; k++) {
+            scout += "<td>?</td>";
+          }
+          scout += "</tr>";
+        }
+
+        document.write(scout);
+
+        for (let i = 5; i > 0; i--) {
+          let row = "";
+          for (let j = 1; j < i; j++) {
+            row += "  ";
+          }
+          for (let k = 0; k <= 5 - i; k++) {
+            row += "* ";
+          }
+          console.log(row);
+        }
+
+        for (let i = 0; i < 5; i++) {
+          let row = "";
+          for (let j = 1; j <= i; j++) {
+            row += "  ";
+          }
+          for (let k = 0; k < 5 - i; k++) {
+            row += "* ";
+          }
+          console.log(row);
+        }
+      }
+
+      function lesson04() {
+        let dai = 10;
+        let cao = 4;
+
+        for (let i = 0; i < cao; i++) {
+          let hinhcn = "";
+          if (i == 0 || i == cao - 1) {
+            for (let j = 0; j < dai; j++) {
+              hinhcn += "*";
+            }
+          } else {
+            hinhcn += "*";
+            for (let k = 1; k < dai - 1; k++) {
+              hinhcn += " ";
+            }
+            hinhcn += "*";
+          }
+          console.log(hinhcn);
+        }
+      }
+      function lesson05(soTienBanDau, soThangChoVay, laiSuatHangThang) {
+        let tongLai = 0;
+        let soTienConLai = soTienBanDau;
+
+        for (let thang = 1; thang <= soThangChoVay; thang++) {
+          let laiThang = soTienConLai * laiSuatHangThang;
+          tongLai += laiThang;
+          soTienConLai += laiThang;
+        }
+
+        const tongSoTien = soTienBanDau + tongLai;
+        console.log(tongSoTien);
+      }
+      function lesson06() {
+        const heart = `
+          ****   ****
+        ******* *******
+        ***************
+        *************
+          *********
+            ******
+            
+        `;
+
+        console.log(heart);
+      }
+    </script>
+  </body>
+</html>

@@ -32,7 +32,7 @@
         function onClickImg(ltn) {
             var randomNumber = Math.floor(Math.random() * 3)
             let img = document.querySelectorAll('#puzzels img');
-            img[ltn].setAttribute('src', `asset/images/img-meo${randomNumber}-${ltn}.png`);
+            img[ltn].setAttribute('src', `/js/exercise/asset/images/img-meo${randomNumber}-${ltn}.png`);
             
             let nameImg0 = getNameImg(0);
             let nameImg1 = getNameImg(1);
@@ -51,9 +51,9 @@
         }
         function onLoadPuzzel() {
             let img = document.querySelectorAll('#puzzels img');
-            img[0].setAttribute('src', `asset/images/img-meo${Math.floor(Math.random() * 3)}-0.png`);
-            img[1].setAttribute('src', `asset/images/img-meo${Math.floor(Math.random() * 3)}-1.png`);
-            img[2].setAttribute('src', `asset/images/img-meo${Math.floor(Math.random() * 3)}-2.png`);
+            img[0].setAttribute('src', `/js/exercise/asset/images/img-meo${Math.floor(Math.random() * 3)}-0.png`);
+            img[1].setAttribute('src', `/js/exercise/asset/images/img-meo${Math.floor(Math.random() * 3)}-1.png`);
+            img[2].setAttribute('src', `/js/exercise/asset/images/img-meo${Math.floor(Math.random() * 3)}-2.png`);
         }
         
         function getNameImg(ltn) {

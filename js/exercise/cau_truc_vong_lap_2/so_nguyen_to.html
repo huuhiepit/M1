@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[Bài tập] Hiển thị các số nguyên tố đầu tiên</title>
+  </head>
+  <body>
+    <script>
+      //Hien thi 20 so dau tien
+      let number = prompt("Nhap khoang de tim kiem:");
+      let count = 0;
+      let n = 0;
+
+      if (number <= 1) {
+        alert("Không tồn tại số nguyên tố nào");
+      }
+      for(let i = 2; i <= number; i++) {
+        if(isPrime(i) == true) {
+            document.write("<p>" + i + "</p>")
+        }
+      }
+      function isPrime(number) {
+        if (number <= 1) {
+          return false;
+        }
+        if (number <= 3) {
+          return true;
+        }
+        if (number % 2 === 0 || number % 3 === 0) {
+          return false;
+        }
+        let i = 5;
+        while (i * i <= number) {
+          if (number % i === 0 || number % (i + 2) === 0) {
+            return false;
+          }
+          i += 6;
+        }
+        return true;
+      }
+    </script>
+  </body>
+</html>

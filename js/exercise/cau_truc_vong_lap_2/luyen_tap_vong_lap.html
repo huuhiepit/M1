@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[*Bài tập] Luyện tập vòng lặp 01</title>
+    <style>
+      /* CSS */
+      button {
+        align-items: center;
+        appearance: none;
+        background-image: radial-gradient(
+          100% 100% at 100% 0,
+          #5adaff 0,
+          #5468ff 100%
+        );
+        border: 0;
+        border-radius: 6px;
+        box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+          rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+          rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+        box-sizing: border-box;
+        color: #fff;
+        cursor: pointer;
+        display: inline-flex;
+        font-family: "JetBrains Mono", monospace;
+        height: 48px;
+        justify-content: center;
+        line-height: 1;
+        list-style: none;
+        overflow: hidden;
+        padding-left: 16px;
+        padding-right: 16px;
+        position: relative;
+        text-align: left;
+        text-decoration: none;
+        transition: box-shadow 0.15s, transform 0.15s;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        white-space: nowrap;
+        will-change: box-shadow, transform;
+        font-size: 18px;
+      }
+
+      button:focus {
+        box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+          rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+      }
+
+      button:hover {
+        box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+          rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+        transform: translateY(-2px);
+      }
+
+      button:active {
+        box-shadow: #3c4fe0 0 3px 7px inset;
+        transform: translateY(2px);
+      }
+    </style>
+  </head>
+  <body>
+    <button role="button" onclick="lesson01()">Bai 01</button>
+    <button role="button" onclick="lesson02()">Bai 02</button>
+    <button role="button" onclick="lesson03()">Bai 03</button>
+    <button role="button" onclick="lesson04()">Bai 04</button>
+    <button role="button" onclick="lesson05()">Bai 05</button>
+    <button role="button" onclick="lesson06()">Bai 06</button>
+    <button role="button" onclick="lesson07()">Bai 07</button>
+    <button role="button" onclick="lesson08()">Bai 08</button>
+
+    <script>
+      function lesson01() {
+        for (let i = 1; i < 100; i++) {
+          console.log(i);
+        }
+        alert("Đã hoàn thành");
+      }
+      function lesson02() {
+        let doC = prompt("Nhập nhiệt độ hiện tại: ");
+
+        if (doC > 100) {
+          alert("Vui lòng giảm nhiệt độ");
+        }
+        if (doC < 20) {
+          alert("Vui lòng tăng nhiệt độ");
+        } else {
+          alert("Nhiệt độ chuẩn");
+        }
+      }
+      function lesson03() {
+        let fibonacci = fibonacciWithLoop(20);
+        console.log(fibonacci);
+      }
+      function lesson04() {
+        let fibonacci = fibonacciWithLoop(20);
+        for(let i = 0; i < fibonacci.length; i++) {
+          if(fibonacci[i] % 5 == 0) {
+            alert(`Số chia hết cho 5 là ${fibonacci[i]}`);
+            break;
+          }
+        }
+      }
+      function lesson05() {
+        let fibonacci = fibonacciWithLoop(20);
+        let total = 0;
+        
+        for(let i = 0; i < fibonacci.length; i++) {
+          total += fibonacci[i];
+        }
+        console.log(total);
+      }
+      function lesson06() {
+        let fibonacci = fibonacciWithLoop(300);
+        let total = index = 0;
+
+        for(let i = 0; i < fibonacci.length; i++) {
+          if(fibonacci[i] % 7 == 0) {
+            total += fibonacci[i];
+            index++;
+          }
+          if(index == 30) {
+            console.log(total + ' ' + index);
+            break;
+          }
+        }
+      }
+      function lesson07() {
+        let i = 1;
+        
+        for (i; i <= 100; i++) {
+          if(i % 3 == 0 && i % 5 == 0) {
+            console.log("FizzBuzz");
+            continue;
+          }
+          if(i % 3 == 0) {
+            console.log("Fizz");
+            continue;
+          }
+          if(i % 5 == 0) {
+            console.log("Buzz");
+            continue;
+          }
+          console.log(i);
+        }
+      }
+      function lesson08() {
+        let numberAbout = prompt("Nhập vào khoảng số từ muốn đoán: ");
+        let numberEnter = prompt("Nhập vào số bạn đoán");
+        const number = Math.floor(Math.random() * numberAbout);
+        let turn = 0;
+        while(true) {
+          if(turn == 3) {
+            alert("Bạn đã hết lượt chơi");
+            break;
+          }
+          if(numberEnter == number) {
+            alert("Chúc mừng bạn đã đoán đúng");
+            break;
+          } else if(numberEnter > number) {
+            numberEnter = prompt("Số đó bé hơn, vui lòng nhập lại: ");
+            console.log(numberEnter + ' ' + number);
+            turn++;
+          } else {
+            numberEnter = prompt("Số đó lớn hơn, vui lòng nhập lại: ");
+            turn++;
+            console.log(numberEnter + ' ' + number);
+          }
+        }
+      }
+
+      function fibonacciWithLoop(n) {
+        const fibSequence = [0, 1];
+        for(let i = 2; i < n; i++) {
+          const nextNumber = fibSequence[i - 1] + fibSequence[i - 2];
+          fibSequence.push(nextNumber);
+        }
+        return fibSequence;
+      }
+    </script>
+  </body>
+</html>
