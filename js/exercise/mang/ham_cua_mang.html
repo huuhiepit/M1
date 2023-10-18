@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Bài tập] Sử dụng các hàm có sẵn của mảng</title>
+    <style>
+        /* CSS */
+        button {
+          align-items: center;
+          appearance: none;
+          background-image: radial-gradient(
+            100% 100% at 100% 0,
+            #5adaff 0,
+            #5468ff 100%
+          );
+          border: 0;
+          border-radius: 6px;
+          box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+            rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+            rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+          box-sizing: border-box;
+          color: #fff;
+          cursor: pointer;
+          display: inline-flex;
+          font-family: "JetBrains Mono", monospace;
+          height: 48px;
+          justify-content: center;
+          line-height: 1;
+          list-style: none;
+          overflow: hidden;
+          padding-left: 16px;
+          padding-right: 16px;
+          position: relative;
+          text-align: left;
+          text-decoration: none;
+          transition: box-shadow 0.15s, transform 0.15s;
+          user-select: none;
+          -webkit-user-select: none;
+          touch-action: manipulation;
+          white-space: nowrap;
+          will-change: box-shadow, transform;
+          font-size: 18px;
+        }
+  
+        button:focus {
+          box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+            rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+        }
+  
+        button:hover {
+          box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+            rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+          transform: translateY(-2px);
+        }
+  
+        button:active {
+          box-shadow: #3c4fe0 0 3px 7px inset;
+          transform: translateY(2px);
+        }
+      </style>
+</head>
+<body>
+    <button role="button" onclick="lesson01()">Bai 01</button>
+    <button role="button" onclick="lesson02()">Bai 02</button>
+    <button role="button" onclick="lesson03()">Bai 03</button>
+    <br>
+    <h5 id="result"></h5>
+    <script>
+        let result = document.getElementById('result');
+
+        function lesson01() {
+            let myColor = ["Red", "Green", "White", "Black"];
+            let color = '';
+
+            for(let i = 0; i < myColor.length; i++) {
+                if(i == myColor.length - 1) {
+                    color += myColor[i];
+                    continue;
+                }
+                color += myColor[i] + ',';
+            }
+            result.innerHTML = color;
+        }
+
+        function lesson02() {
+            let numberPhone = prompt("Enter number phone:");
+            let i = j = 0;
+            let strArr = [];
+            let str = '';
+
+            while(i < numberPhone.length) {
+                strArr.push(numberPhone[i]);
+                if(numberPhone[i] % 2 == 0 && numberPhone[i+1] % 2 == 0) {
+                    strArr.push('-');
+                }
+                i++;
+            }
+            while(j < strArr.length) {
+                str += strArr[j];
+                j++;
+            }
+            result.innerHTML = str;
+        }
+
+        function lesson03() {
+            let strArr = prompt("Enter a string:");
+            let i = 0;
+            let str = [];
+
+            while(i < strArr.length) {
+              str.push(strArr[i]);
+              i++;
+            }
+            
+            for(let i = 0;i < str.length; i++) {
+              if(isLowerCase(str[i])) {
+                str[i] = str[i].toUpperCase();
+                continue;
+              }
+              if(isUpperCase(str[i])) {
+                str[i] = str[i].toLowerCase();
+                continue;
+              }
+            }
+
+            result.innerHTML = str;
+
+            function isLowerCase(char) {
+              return char >= 'a' && char <= 'z';
+            }
+            function isUpperCase(char) {
+              return char >= 'A' && char <= "Z";
+            }
+        }
+    </script>
+</body>
+</html>
