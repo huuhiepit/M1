@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[Bài tập] Tic tac toe</title>
+    <style>
+      span {
+        margin: 10px;
+        width: 16px;
+        font-size: 1.6rem;
+        padding: 0 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Game Tic Tac Toe</h3>
+    <p id="content-game"></p>
+    <button onclick="changeTicTacToe()" id="btn-change">Change</button>
+
+    <script>
+      let gameArr = [];
+      let data = "";
+      let i = (j = change = 0);
+      let contentGame = document.getElementById("content-game");
+
+      for (i = 0; i < 5; i++) {
+        gameArr[i] = new Array("(.)", "(.)", "(.)", "(.)", "(.)");
+      }
+      for (i = 0; i < gameArr.length; i++) {
+        for (j = 0; j < gameArr.length; j++) {
+          data += `<span>${gameArr[i][j]}</span>`;
+        }
+        data += "<br>";
+      }
+      contentGame.innerHTML = data;
+
+      function changeTicTacToe() {
+        data = "";
+        let positionX = prompt("Enter the position of X: ");
+        let positionY = prompt("Enter the position of Y: ");
+
+        if (gameArr[positionX][positionY] == "(.)") {
+          if (change % 2 == 0) {
+            gameArr[positionX][positionY] = "x";
+            change++;
+          } else {
+            gameArr[positionX][positionY] = "o";
+            change++;
+          }
+        } else {
+          alert("Please re-enter X, Y.");
+        }
+        console.log(gameArr);
+        for (i = 0; i < gameArr.length; i++) {
+          for (j = 0; j < gameArr.length; j++) {
+            data += `<span>${gameArr[i][j]}</span>`;
+          }
+          data += "<br>";
+        }
+        winGame(gameArr[positionX][positionY]);
+        contentGame.innerHTML = data;
+      }
+
+      function winGame(x) {
+        for(let i = 0; i < gameArr.length; i++) {
+            for(let j = 0; j < gameArr.length; j++) {
+                // Xet theo hang ngang
+                if(gameArr[i][j] == x && gameArr[i][j + 1] == x && gameArr[i][j + 2] == x) {
+                    alert(`${x} Win`);
+                }
+
+                //Xet theo hang doc
+                if(gameArr[i][j] == x && gameArr[i + 1][j] == x && gameArr[i + 2][j] == x) {
+                    alert(`${x} Win`);
+                }
+            }
+        }
+    
+      }
+    </script>
+  </body>
+</html>

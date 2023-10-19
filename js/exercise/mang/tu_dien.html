@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="translate" type="text">
+    <button onclick="translateEnglish()">Dịch</button>
+
+    <script>
+        function translateEnglish() {
+            let textEnglish = ["apple", "banana", "orange", "cherry"];
+            let textVietNames = ["Quả táo", "Quả chuối", "Quả cam", "Quả anh đào"];
+            let translateText = document.getElementById("translate").value;
+
+            for(let i = 0; i < textEnglish.length; i++) {
+                if(textEnglish[i] == translateText) {
+                    alert(`Từ ${textEnglish[i]} là ${textVietNames[i]}`);
+                    break;
+                }    
+            }
+        }
+
+    </script>
+</body>
+</html>
