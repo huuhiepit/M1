@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* CSS */
+      button {
+        align-items: center;
+        appearance: none;
+        background-image: radial-gradient(
+          100% 100% at 100% 0,
+          #5adaff 0,
+          #5468ff 100%
+        );
+        border: 0;
+        border-radius: 6px;
+        box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+          rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+          rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+        box-sizing: border-box;
+        color: #fff;
+        cursor: pointer;
+        display: inline-flex;
+        font-family: "JetBrains Mono", monospace;
+        height: 48px;
+        justify-content: center;
+        line-height: 1;
+        list-style: none;
+        overflow: hidden;
+        padding-left: 16px;
+        padding-right: 16px;
+        position: relative;
+        text-align: left;
+        text-decoration: none;
+        transition: box-shadow 0.15s, transform 0.15s;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        white-space: nowrap;
+        will-change: box-shadow, transform;
+        font-size: 18px;
+      }
+
+      button:focus {
+        box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+          rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+      }
+
+      button:hover {
+        box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+          rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+        transform: translateY(-2px);
+      }
+
+      button:active {
+        box-shadow: #3c4fe0 0 3px 7px inset;
+        transform: translateY(2px);
+      }
+    </style>
+  </head>
+  <body>
+    <button role="button" onclick="lesson01()">Bai 01</button>
+    <button role="button" onclick="lesson02()">Bai 02</button>
+    <button role="button" onclick="lesson03()">Bai 03</button>
+    <button role="button" onclick="lesson04()">Bai 04</button>
+    <button role="button" onclick="lesson05()">Bai 05</button>
+    <button role="button" onclick="lesson06()">Bai 06</button>
+    <button role="button" onclick="lesson07()">Bai 07</button>
+    <button role="button" onclick="lesson08()">Bai 08</button>
+    <button role="button" onclick="lesson09()">Bai 09</button>
+
+    <script>
+      function lesson01() {
+        let arrInt = [12, 1, 2, 6, 41, 2, 6, 11, 9, 13, 14];
+        let count = 0;
+
+        for (let i = 0; i < arrInt.length; i++) {
+          if (arrInt >= 10) {
+            count++;
+          }
+        }
+        alert(`Có ${count} lần lớn hơn hoặc bằng 10`);
+      }
+
+      function lesson02() {
+        let arrInt = [1, 2, 6, 7, 8, 20, 32, 15, 12, 16, 18];
+        let max = arrInt[0];
+        let index = 0;
+
+        for (let i = 1; i < arrInt.length; i++) {
+          if (arrInt[i] > max) {
+            max = arrInt[i];
+            index = i;
+          }
+        }
+        alert(`Max là ${max} có vị trí ${index} trong mảng`);
+      }
+
+      function lesson03() {
+        let arrInt = [1, 6, 5, 8, 4, 2];
+        let max = arrInt[0];
+        let sum = 0;
+
+        arrInt.forEach((element) => {
+          if (element > max) {
+            max = element;
+          }
+          sum += element;
+        });
+        let avg = sum / (arrInt.length + 1);
+        alert(`Max = ${max} and AVG = ${avg.toFixed(2)}`);
+      }
+
+      function lesson04() {
+        let n = prompt("Nhập độ dài của mảng:");
+        let arrInt = [];
+
+        for (let i = 0; i < n; i++) {
+          let number = prompt(`Nhập giá trị của phần tử ${i}`);
+          arrInt.push(number);
+        }
+        arrInt.reverse();
+        alert(arrInt);
+      }
+
+      function lesson05() {
+        let arrNumber = [-2, -5, 4, 3, -6, 1];
+        let count = 0;
+
+        arrNumber.forEach((element) => {
+          if (element < 0) {
+            count++;
+          }
+        });
+        alert(`Số nguyên âm xuất hiện là ${count}`);
+      }
+
+      function lesson06() {
+        let arrNumber = [0, 3, 5, 4, 8, 9, 6, 11, 12, 18];
+        let number = prompt("Nhập vào một số nguyên");
+        let flag = false;
+
+        for (const element of arrNumber) {
+          if (element == number) {
+            flag = true;
+            break;
+          }
+        }
+
+        if (flag) {
+          alert(`${number} is in the array`);
+        } else {
+          alert(`${number} is not in the array`);
+        }
+      }
+
+      function lesson07() {
+        let arrNumber = [1, 5, 4, 6, 8, 10, 12, 11, 19, 16];
+        let number = prompt("Nhập vào một số nguyên");
+        let foundIndex = -1;
+        let temp;
+
+        arrNumber.forEach((num, index) => {
+          if (num == number) {
+            foundIndex = index;
+          }
+        });
+        if (foundIndex !== -1) {
+          alert(`${number} is in the array at index ${foundIndex}`);
+          for(let i = foundIndex; i < arrNumber.length; i++) {
+            if(i == arrNumber.length - 1) {
+                // arrNumber[i] = 0;
+                arrNumber.pop();
+                break;
+            }  
+            temp = arrNumber[i];
+            arrNumber[i] = arrNumber[i+1];
+            arrNumber[i+1] = temp;
+          }
+          console.log(arrNumber);
+        } else {
+          alert(`${number} is not in the array`);
+        }
+      }
+
+      function lesson08() {
+        let arrNumber = [1, 3, 2, 4, 5, 7, 6, 19, 18, 14];
+        let min = arrNumber[0];
+        let temp;
+
+        for(let i = 1; i < arrNumber.length; i++) {
+            if(arrNumber[i] < min) {
+                min = arrNumber[i];
+                temp = arrNumber[i];
+                
+            }
+        }
+      }
+    </script>
+  </body>
+</html>
