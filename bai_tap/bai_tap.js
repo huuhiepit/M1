@@ -140,13 +140,13 @@ function countPrime(arr) {
             count++;
             continue;
         }
-        if(arr[i] % 2 != 0 && arr[i] % 3 != 0) {
+        if(arr[i] % 2 != 0 || arr[i] % 3 != 0) {
             count++;
         }
     }
     return count;
 }
-// console.log(countPrime(arrNumber08));
+console.log(countPrime(arrNumber08));
 
 // Bài 10: Hãy xác định số lượng phần tử kề nhau mà cả 2 đều chẵn
 //lesson 10:
