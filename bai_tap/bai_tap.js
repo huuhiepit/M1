@@ -135,19 +135,23 @@ function countPrime(arr) {
     let count = 0;
 
     for(var i = 0; i < arr.length; i++) {
-        if(arr[i] <= 1) { continue;}
-        if(arr[i] == 2 || arr[i] == 3) {
-            count++;
-            continue;
-        }
-        if(arr[i] % 2 != 0 || arr[i] % 3 != 0) {
+        if(isPrime(arr[i])) {
             count++;
         }
     }
     return count;
 }
+function isPrime(number) {
+    if(number <= 1) { return false;}
+    for(var i = 2; i <= Math.sqrt(number); i++) {
+        if(number % i === 0) {
+            return false;
+        }
+    }
+    return true;
+}
 console.log(countPrime(arrNumber08));
-
+//Bài 9 chưa xong
 // Bài 10: Hãy xác định số lượng phần tử kề nhau mà cả 2 đều chẵn
 //lesson 10:
 function evenNumberAjacent(arr) {

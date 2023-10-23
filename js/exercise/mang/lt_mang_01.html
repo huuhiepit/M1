@@ -202,20 +202,14 @@
       }
 
       function lesson09() {
-        let a = (b = []);
+        let a = [1, 6, 8, 9, 10, 11, 15, 16, 18, 14, 9];
+        let b = [0, 5, 8, 4, 1, 6, 12, 13, 14, 3, 2, 7];
+        let c = a;
 
-        for (var i = 0; i < 10; i++) {
-          a[i] = Math.floor(Math.random() * 50);
-          // Tạo một giá trị ngẫu nhiên cho mảng a
-
-          do {
-            b[i] = Math.floor(Math.random() * 50);
-            // Tạo một giá trị ngẫu nhiên cho mảng b
-          } while (b.includes(b[i]));
-          // Đảm bảo rằng giá trị trong mảng b không trùng lặp với nhau
+        for(var i = 0; i < b.length; i++) {
+          c.push(b[i]);
         }
-
-        console.log(a, b);
+        console.log(c);
       }
     </script>
   </body>
