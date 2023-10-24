@@ -2,7 +2,7 @@ let arrFloat = [1.23, -1.56, 1.02, 3.69, -0.36, 7.56];
 
 // Bài 1: Tính tổng các giá trị lớn hơn giá trị đứng liền trước nó trong mảng 1 chiều các số thực
 //Lesson 01:
-function caclSumMaxFrontNumber(arr) {
+function caclSumLargerFrontNumber(arr) {
     let total = 0;
 
     for(var i = 1; i < arr.length; i++) {
@@ -12,7 +12,7 @@ function caclSumMaxFrontNumber(arr) {
     }
     return total.toFixed(2);
 }
-// console.log(caclSumMaxFrontNumber(arrFloat));
+// console.log(caclSumLargerFrontNumber(arrFloat));
 
 // Bài 2: Tính trung bình cộng các số dương trong mảng 1 chiều các số thực
 //Lesson 2:
