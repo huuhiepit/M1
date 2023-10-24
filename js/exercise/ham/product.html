@@ -95,7 +95,7 @@
         <h3 class="head-product">Display All Product</h3>
         <div class="head-product">
             <h4>Product Name</h4>
-            <span>9 prod</span>
+            <span id="count-product"></span>
         </div>
         <table id="list-product">
         </table>
@@ -115,6 +115,7 @@
                             <td><button onclick='deleteProduct(${i})' class="btn">Delete</button></td>
                         </tr>`;
             }
+            document.getElementById('count-product').innerHTML = `${products.length} prod`;
             listProduct.innerHTML = str;
         }
         function addProduct() {
@@ -125,8 +126,8 @@
             } else {
                 products.push(productName);
             }
-
             document.getElementById('product').value = '';
+            
             printProducts();
         }
 
