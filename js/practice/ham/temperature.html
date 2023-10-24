@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Thực hành] Chuyển đổi nhiệt độ</title>
+</head>
+<body>
+
+    <h3>Temperature Converter</h3>
+    <p>Type a value in the Fahrenheit field to convert the value to Celcius:</p>
+    <label for="">Fahrenheit &nbsp;&nbsp;</label><input type="number" placeholder="Fahrenheit" oninput="temperatureConverter(this.value)" onchange="temperatureConverter(this.value)">
+    <p>Celcius: <span id="outputCelsius"></span></p>
+
+    <script>
+        function temperatureConverter(valNum) {
+            valNum = parseFloat(valNum);
+            console.log(valNum);
+            if(isNaN(valNum)) {
+                document.getElementById('outputCelsius').innerHTML = 'Please input fahrenheit';
+            } else {
+                document.getElementById('outputCelsius').innerHTML = ((valNum-32) / 1.8).toFixed(3);
+            }
+            
+        }
+    </script>
+
+</body>
+</html>
