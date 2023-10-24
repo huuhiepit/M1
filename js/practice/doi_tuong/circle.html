@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Thực hành] Xây dựng lớp Hình Tròn</title>
+</head>
+<body>
+    
+
+    <script>
+        const Circle = function(radius, color) {
+            this.radius = radius;
+            this.color = color;
+            this.getRadius = function() {
+                return this.radius;
+            }
+            this.getArea = function() {
+                return Math.PI * radius * radius;
+            }
+        }
+
+        let circle = new Circle(2);
+        let area = circle.getArea();
+        console.log(area);
+    </script>
+</body>
+</html>
