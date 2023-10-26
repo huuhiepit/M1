@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xây dựng lớp mô tả điện thoại</title>
+</head>
+<body>
+    
+
+    <script>
+        class Mobile {
+            constructor(pin) {
+                this.pin = pin;
+                this.poweredOn = false;
+                this.draftMessages = [];
+                this.inbox = [];
+                this.sentMessages = [];
+            }
+
+            isPowereOn() {
+                return this.poweredOn;
+            }
+            powerOn() {
+                if(!this.poweredOn) {
+                    this.pin--;
+                    this.poweredOn = true;
+                }
+            }
+            powerOff() {
+                if(!this.poweredOn) {
+                    this.poweredOn = false;
+                }
+            }
+            charge() {
+                if(this.pin < 100 && this.pin >= 0) {
+                    this.pin++;
+                }
+            }
+            composeMessage(message) {
+                if(this.poweredOn) {
+                    this.pin--;
+                    this.draftMessages.push(message);
+                }
+            }
+            receiveMessage(message) {
+                if(this.poweredOn) {
+                    this.pin--;
+                    this.inbox.push(message);
+                }
+            }
+            sendMessage(message, recipientMobile) {
+                if(this.poweredOn && recipientMobile.isPowereOn()) {
+                    this.pin--;
+                    recipientMobile.receiveMessage(message);
+                    this.sentMessages.push(message);
+                }
+            }
+            viewInbox() {
+                if(this.poweredOn) {
+                    console.log('Inbox: ');
+                    this.inbox.forEach((message, index) =>{
+                        console.log(`Message ${index + 1}: ${message}`);
+                    })
+                }
+            }
+            viewSendMessage() {
+                if(this.powerOn) {
+                    console.log('Send: ');
+                    this.sentMessages.forEach((message,index) => {
+                        console.log(`Message ${index + 1}: ${message}`);
+                    });
+                }
+            }
+        }
+        
+        let nokia = new Mobile(98);
+        let iphone = new Mobile(55);
+        nokia.powerOn();
+        nokia.composeMessage("Hello");
+        console.log(nokia.draftMessages);
+
+        iphone.powerOn();
+        iphone.sendMessage("Hello World!", nokia);
+        console.log(nokia.inbox);
+        console.log(iphone.sentMessages);
+        
+    </script>
+</body>
+</html>
