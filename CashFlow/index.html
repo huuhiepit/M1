@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cashflow</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="row">
+            <form action="" class="form-create">
+                <div class="info-products">
+                    <label for="">Tên sản phẩm</label>
+                    <input name="txtName" type="text" placeholder="Nhập tên sản phẩm">
+                </div>
+                <div class="info-products">
+                    <label for="">Số lượng</label>
+                    <input name="txtQuantity" type="number" placeholder="Nhập số lượng sản phẩm">
+                </div>
+                <div class="info-products">
+                    <label for="">Giá sản phẩm</label>
+                    <input name="txtPrice" type="number" placeholder="Nhập giá sản phẩm">
+                </div>
+                <div class="info-products">
+                    <label for="">Thể loại sản phẩm</label>
+                    <select name="sCatelory" id="selectCategory">
+                    
+                    </select>
+                </div>
+                <div class="info-products btnEdit">
+                    <label for=""></label>
+                    <button onclick="handleBtnAdd()" type="button" class="btn">Add</button>
+                </div>
+
+            </form>
+        </div>
+
+        <div class="row">
+            <div class="search-box">
+                <input name="txtSearch" type="text" placeholder="Search">
+                <button onclick="handleSearchProduct()" class="btn fas fa-search"></button>
+            </div>
+            <table class="table-box">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>product name</th>
+                        <th>category</th>
+                        <th>quantity</th>
+                        <th>price</th>
+                        <th>amount</th>
+                        <th>action</th>
+                    </tr>
+                </thead>
+                <tbody id="list-products">
+                    
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="5">Total amount</td>
+                        <td id="total">2.840.000</td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <div class="page-box">
+                <input type="button" value="1">
+                <input type="button" value="2">
+                <input type="button" value="3">
+                <input type="button" value="4">
+                <input type="button" value="5">
+            </div>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

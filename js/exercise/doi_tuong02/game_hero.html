@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Bài tập] Game đơn giản - di chuyển đối tượng</title>
+</head>
+<body>
+    <div id="game"></div>
+    <script>
+        class Hero {
+            constructor(image, top, left, size, speed) {
+                this.image = image;
+                this.top = top;
+                this.left = left;
+                this.size = size;
+                this.speed = speed;
+            }
+            getHeroElement() {
+                return `<img width="${this.size}px" height="${this.size}px"
+                    src="${this.image}" style="top: ${this.top}px; left: ${this.left}px; position:absolute;">`;
+            }
+            moveRight() {
+                this.left += this.speed;
+            }
+            moveLeft() {
+                this.left -= this.speed;
+            }
+            moveBottom() {
+                this.top += this.speed;
+            }
+            moveTop() {
+                this.top -= this.speed;
+            }
+        }  
+        // var hero = new Hero('pikachu.png', 20, 20, 200);
+        var hero = new Hero('doraemon.png', 0, 0, 200, 30);
+
+        function start() {
+            if(hero.left < window.innerWidth - hero.size && hero.top === 0) {
+                hero.moveRight();
+            } else if(hero.left >= window.innerWidth - hero.size && hero.top < window.innerHeight - hero.size) {
+                hero.moveBottom();
+            } else if(hero.top >= window.innerHeight - hero.size && hero.left > 0) {
+                hero.moveLeft()
+            } else if(hero.top > 0 && hero.left === 0){
+                hero.moveTop();
+            }
+
+            document.getElementById('game').innerHTML = hero.getHeroElement();
+            setTimeout(start, 50);
+        }
+        start();
+    </script>
+</body>
+</html>
